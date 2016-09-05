@@ -1,138 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-    <head>
-		<meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-        <title>LettersTo</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <meta name="description" content="Animated Responsive Image Grid - Cycling through a set of images in a responsive grid." />
-        <meta name="keywords" content="grid, images, thumbnails, responsive, css3, jquery, javascript, random, transition, 3d, perspective" />
-        <meta name="author" content="Codrops" />
-        <link rel="shortcut icon" href="../favicon.ico"> 
-        <link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<script type="text/javascript" src="js/modernizr.custom.26633.js"></script>
-		<noscript>
-			<link rel="stylesheet" type="text/css" href="css/fallback.css" />
-		</noscript>
-		<!--[if lt IE 9]>
-			<link rel="stylesheet" type="text/css" href="css/fallback.css" />
-		<![endif]-->
-    </head>
-    <body>
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>LettersTo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="Animated Responsive Image Grid - Cycling through a set of images in a responsive grid."/>
+  <meta name="keywords"
+        content="grid, images, thumbnails, responsive, css3, jquery, javascript, random, transition, 3d, perspective"/>
+  <meta name="author" content="Codrops"/>
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="stylesheet" type="text/css" href="css/demo.css"/>
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <script type="text/javascript" src="js/modernizr.custom.26633.js"></script>
+  <noscript>
+    <link rel="stylesheet" type="text/css" href="css/fallback.css"/>
+  </noscript>
+  <!--[if lt IE 9]>
+  <link rel="stylesheet" type="text/css" href="css/fallback.css"/>
+  <![endif]-->
+</head>
+<body>
 
-		<section class="main">
+<section class="main">
 
-			<div id="ri-grid" class="ri-grid ri-grid-size-3">
+  <div id="ri-grid" class="ri-grid ri-grid-size-3">
+    <ul id="images">
 
-			<ul id="images">
+    </ul>
+  </div>
 
+</section>
 
-			<li><a href="#"><img src="images/medium/1.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/2.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/3.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/4.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/5.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/6.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/7.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/8.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/9.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/10.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/11.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/12.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/13.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/14.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/15.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/16.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/17.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/18.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/19.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/20.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/21.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/22.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/23.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/24.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/25.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/26.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/27.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/28.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/29.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/30.jpg"/></a></li>
-			<li><a href="#"><img src="images/medium/31.jpg"/></a></li>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.gridrotator.js"></script>
+
+<script type="text/javascript">
 
 
-			</ul>
-
-			</div>
-				
-			<header class="codrops-header-special">
-			
-				<h1>LettersTo</h1>
- 	
-			</header>
-
-			</section>
-			
-        </div>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jquery.gridrotator.js"></script>
-
-		<script type="text/javascript">
-	
-
-		$(function(){
-  var search_term = 'letters';
-  var url = 'https://api.flickr.com/services/feeds/photos_public.gne?tags='+search_term+"&tagmode=any&format=json&jsoncallback=?"; 
-  $.getJSON(url,after_download);
-});
-
-function after_download(data){ 
-  var $images = $("#images");
-  data.items.forEach(function(item) {
-    var $img = $("<img/>").attr("src", item.media.m);
-    $img.appendTo($images);
-  }).on("load", function(e) {
-  	$(this).wrap("<li><a href=" + this.src + ">");
+  $(function () {
+    var search_term = 'letters';
+    var url = 'https://api.flickr.com/services/feeds/photos_public.gne?tags=' + search_term + "&tagmode=any&format=json&jsoncallback=?";
+    $.getJSON(url, after_download);
   });
-};
+
+  function after_download(data) {
+    var $images = $("#images");
+    data.items.forEach(function (item) {
+      var $item = $('<li><a href="#"><img src="' + item.media.m + '"/></a>');
+      $item.appendTo($images);
+      $item.clone().appendTo($images);
+    });
+
+    $('#ri-grid').gridrotator();
+  }
+
+</script>
 
 
-
-		</script>
-
-		<script type="text/javascript">
-					$(function() {
-			
-				$( '#ri-grid' ).gridrotator( {
-					rows : 5,
-					columns : 8,
-					maxStep : 2,
-					interval : 2000,
-					w1024 : {
-						rows : 5,
-						columns : 6
-					},
-					w768 : {
-						rows : 5,
-						columns : 5
-					},
-					w480 : {
-						rows : 6,
-						columns : 4
-					},
-					w320 : {
-						rows : 7,
-						columns : 4
-					},
-					w240 : {
-						rows : 7,
-						columns : 3
-					},
-				} );
-			
-			});
-
-
-		</script>
-    </body>
+</body>
 </html>
